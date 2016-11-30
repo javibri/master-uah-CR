@@ -1,0 +1,76 @@
+<html>
+<head>
+<title>Datos cotizaci&oacute;n bolsa</title>
+<META HTTP-EQUIV="REFRESH" CONTENT="5;URL=/index.html">
+<META HTTP-EQUIV="CACHE-CONTROL" CONTENT="NO-CACHE">
+<META HTTP-EQUIV="PRAGMA" CONTENT="NO-CACHE">
+
+
+
+
+
+
+</head> 
+<body>
+<BODY BACKGROUND="http://www.solofondos.com/wp-content/uploads/2015/11/fondo2.jpg">
+
+<h1><strong>Cotizaci&oacute;n de la bolsa en tiempo real</strong></h1>
+<font size=4>
+<p>En esta web se presentan los datos en tiempo real con una actualizaci&oacute;n cada dos minutos de los valores de la cotizaci&oacute;n de <span style="color: #ff0000;">ACCIONA</span>  con un refresco del intervalo cada 2 minutos.</p>
+<p><img style="display: block; margin-left: auto; margin-right: auto;" src="https://upload.wikimedia.org/wikipedia/en/c/c1/IBEX_35_logo.png" alt="Ibex 35" width="357" height="110" /><img style="display: block; margin-left: auto; margin-right: auto;" src="http://www.jppelectronica.com/imagenes/logo-acciona.jpg" alt="Acciona" width="357" height="110" /></p>
+
+
+<p>&nbsp;</p>
+<center>
+<iframe width="450" height="260" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/184821/charts/1?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=60&type=line"></iframe>
+</center>
+<p>El dato de cotizaci&oacute;n actual de <span style="color: #ff0000;">ACCIONA</span> es: <b>{{valor}}</b> a las <b>{{hora}}</b> del dia <b>{{fecha}}</b></p>
+<p><br>
+
+
+<h1><strong>Umbral</strong></h1>
+<p>El buscador del umbral consiste en analizar si superamos un % de un valor para la venta de las acciones respecto al primer dato de la base de datos.</p>
+Introducir un umbral para la comparaci&oacute;n: 
+<form action="/umbral.html" method="get">
+<input type="text" id="nombre" name="nombre">
+<input type="submit" value="Enviar" />
+</form>
+
+
+
+Introducir un valor y un umbral para la comparaci&oacute;n: 
+<form action="/umbral2.html" method="get">
+<input type="text" id="valor_umbral" name="valor_umbral">
+<input type="text" id="umbral2" name="umbral2">
+<input type="submit" value="Enviar" />
+</form>
+<p>
+<br>
+<h1><strong>Valor medio de las cotizaciones</strong></h1>
+A continuacion, se muestra el valor medio de todos los datos que han sido introducidos en la base de datos desde el incio del a misma
+
+<p><a title="Valor medio cotizacion" href="/media.html">Ver valor medio de las cotizaciones</a></p>
+<p><br>
+<h1><strong>Otros enlaces</strong></h1>
+<p><a title="Ver graficas externas" href="https://thingspeak.com/channels/184821/charts/1?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=60&type=line">Ver graficas externas</a></p>
+<p>&nbsp;</p>
+<p><a title="Ver datos en bruto BBDD de la ultima cotizacion" href="/UltimoDato">Ver datos en bruto BBDD de la ultima cotizacion</a></p>
+<p><a title="Ver datos en bruto BBDD" href="/getDatosBolsa">Ver datos en bruto BBDD</a></p>
+
+</font>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html> 

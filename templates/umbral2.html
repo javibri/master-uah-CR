@@ -1,0 +1,47 @@
+<html>
+<head>
+<title>Datos cotizaci&oacute;n bolsa</title>
+<META HTTP-EQUIV="REFRESH" CONTENT="120;URL=/umbral2.html?valor_umbral={{valor_ini}}&umbral2={{ppp}}">
+<META HTTP-EQUIV="CACHE-CONTROL" CONTENT="NO-CACHE">
+<META HTTP-EQUIV="PRAGMA" CONTENT="NO-CACHE">
+<script>
+function myFunction() {
+    alert("Vende inmediatamente!!!!");
+}
+</script>
+
+<script>
+if ({{flag}} == 1) {
+    myFunction();
+}
+</script>
+
+
+</head> 
+<body>
+<BODY BACKGROUND="http://www.solofondos.com/wp-content/uploads/2015/11/fondo2.jpg">
+<h1><strong>Cotizaci&oacute;n de la bolsa en tiempo real</strong></h1>
+<font size=4>
+<p>En esta web se presentan los datos en tiempo real con una actualizaci&oacute;n cada dos minutos de los valores de la cotizaci&oacute;n de <span style="color: #ff0000;">ACCIONA</span>  con un refresco del intervalo cada 2 minutos.</p>
+<p><img style="display: block; margin-left: auto; margin-right: auto;" src="https://upload.wikimedia.org/wikipedia/en/c/c1/IBEX_35_logo.png" alt="Ibex 35" width="357" height="110" /><img style="display: block; margin-left: auto; margin-right: auto;" src="http://www.jppelectronica.com/imagenes/logo-acciona.jpg" alt="Acciona" width="357" height="110" /></p>
+
+<p>&nbsp;</p>
+<center>
+<iframe width="450" height="260" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/184821/charts/1?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=60&type=line"></iframe>
+</center>
+<p>El dato de cotizaci&oacute;n actual de <span style="color: #ff0000;">ACCIONA</span> es: <b>{{valor}}</b> a las <b>{{hora}}</b> del dia <b>{{fecha}}</b></p>
+<p><br>
+
+<p>El valor inicial de comparacion es: <b>{{valor_ini}}</b></p>
+<p>El valor de umbral es del <b>{{umbral_introducido}}</b> siendo el valor a alcanzar: <b>{{umbral}}</b></p>
+<p>El valor actual de comparacion: <b>{{valor}}</b></p>
+
+</font>
+<form action="/index.html" method="get">
+<input type="submit" value="Atras" />
+</form>
+
+
+
+</body>
+</html> 
