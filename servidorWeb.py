@@ -16,7 +16,6 @@ collection = db['datos']
 datos_reales=collection.find().sort([( '_id' , -1 )] ).limit(1).next()
 
 
-
 @app.route('/')
 def nada():
   datos_reales=collection.find().sort([( '_id' , -1 )] ).limit(1).next()
@@ -55,6 +54,8 @@ def prueba():
   primerv=db.datos.find({},{"_id":0,"hora":0,"fecha":0}).limit(1)
   return json.dumps(primerv)
     
+    
+    
 @app.route('/Media')   
 def Media():
   valores=collection.find()
@@ -75,21 +76,18 @@ def MediaHTML():
 
 @app.route('/umbral.html',methods=['GET'])
 def umbral():
+  flag=0
   datos_reales=collection.find().sort([( '_id' , -1 )] ).limit(1).next()
   valor_ini=db.datos.find().limit(1).next()
-  valor_ini=valor_ini['valor']
-  #valor_actual=float(datos_reales['valor'])
-  valor_actual=float(100.0)
-  print "================"
+  valor_ini=float(valor_ini['valor'].replace(',','.'))
+  valor_actual=float(datos_reales['valor'])
   umbral_introducido = float(request.args.get('nombre'))
-  valor_ini=float(69.12)
   umbral = umbral_introducido * valor_ini / 100
-  print umbral
   valor_deteccion = valor_ini + umbral
-  print valor_deteccion
   if valor_actual>valor_deteccion:
     flag=1
   return render_template('umbral.html', valor=datos_reales['valor'], fecha=datos_reales['fecha'], hora=datos_reales['hora'],umbral=valor_deteccion, ppp=str(umbral_introducido), umbral_introducido=umbral_introducido , valor_ini=valor_ini, flag=flag)  
+
 
 
 @app.route('/umbral2.html',methods=['GET'])
@@ -97,8 +95,6 @@ def umbral2():
   flag=0
   datos_reales=collection.find().sort([( '_id' , -1 )] ).limit(1).next()
   valor_actual=float(datos_reales['valor'])
-  #valor_actual=float(64.0)
-  print "================"
   umbral_introducido = float(request.args.get('umbral2'))
   valor_ini = float(request.args.get('valor_umbral'))
   umbral = umbral_introducido * valor_ini / 100
@@ -108,6 +104,15 @@ def umbral2():
   return render_template('umbral2.html', valor=datos_reales['valor'], fecha=datos_reales['fecha'], hora=datos_reales['hora'],umbral=valor_deteccion, ppp=str(umbral_introducido), umbral_introducido=umbral_introducido , valor_ini=valor_ini, flag=flag)
   
   
+
+@app.route('/zona_privada.html')
+def zona_privada():
+  datos_reales=collection.find().sort([( '_id' , -1 )] ).limit(1).next()
+  valores=collection.find()
+  valores = [ float(x['valor'].replace(',','.')) for x in valores]
+  media = sum(valores) / len(valores)
+  return render_template('zona_privada.html', valor=datos_reales['valor'], fecha=datos_reales['fecha'], hora=datos_reales['hora'], media=media)
+
 
 
 if __name__ == '__main__':

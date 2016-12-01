@@ -5,12 +5,18 @@
 <META HTTP-EQUIV="CACHE-CONTROL" CONTENT="NO-CACHE">
 <META HTTP-EQUIV="PRAGMA" CONTENT="NO-CACHE">
 
-
-
-
-
-
+<SCRIPT  language=JavaScript> 
+function go(){
+if (document.form.password.value=='Entrecanales' && document.form.login.value=='Jose'){ 
+        document.form.submit(); 
+    } 
+    else{ 
+         alert("Porfavor ingrese, nombre de usuario y contrasena correctos."); 
+    } 
+} 
+</SCRIPT>
 </head> 
+
 <body>
 <BODY BACKGROUND="http://www.solofondos.com/wp-content/uploads/2015/11/fondo2.jpg">
 
@@ -53,24 +59,17 @@ A continuacion, se muestra el valor medio de todos los datos que han sido introd
 <p><br>
 <h1><strong>Otros enlaces</strong></h1>
 <p><a title="Ver graficas externas" href="https://thingspeak.com/channels/184821/charts/1?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=60&type=line">Ver graficas externas</a></p>
-<p>&nbsp;</p>
+
 <p><a title="Ver datos en bruto BBDD de la ultima cotizacion" href="/UltimoDato">Ver datos en bruto BBDD de la ultima cotizacion</a></p>
 <p><a title="Ver datos en bruto BBDD" href="/getDatosBolsa">Ver datos en bruto BBDD</a></p>
 
+<p><br>
+<h1><strong>Zona privada</strong></h1>
+<FORM name=form action="zona_privada.html">
+<P>Usuario:    <INPUT type=text name=login> 
+<P>Contrasena: <INPUT type=password name=password> 
+<INPUT onclick=go() type=button value=Acceder>
+</FORM> 
 </font>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 </body>
 </html> 
