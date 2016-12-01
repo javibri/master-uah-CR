@@ -21,7 +21,6 @@ while(True):
     html = response.read()
     #print "Get all data: ", html
     
-    datosRe = {}
     tabla = re.search( '<table class="TblPort" cellspacing="0" cellpadding="3" border="0" id="ctl00_Contenido_tblAcciones"(.|\n)*?</table>', html).group(0)
     acciona = re.search( 'ACCIONA</a>.*</td>', tabla).group(0)
     bus_td = re.search( '<td>.*</td>', acciona).group(0)
@@ -46,8 +45,6 @@ while(True):
     print('Thingspeak pre')
     urllib2.urlopen('https://api.thingspeak.com/update?api_key=RYEK7OLBHL3P3W1F&field1='+ str(valor))
     print('Thingspeak post')
-    #to_wait = -time.time()%120 + 120
-    #time.sleep(to_wait)
 
   except:
     pass
